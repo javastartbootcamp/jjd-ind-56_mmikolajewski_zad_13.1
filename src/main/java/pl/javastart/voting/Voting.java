@@ -1,8 +1,6 @@
 package pl.javastart.voting;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Voting {
 
@@ -15,7 +13,6 @@ public class Voting {
         voters.add("Zbyszek Stonoga");
 
         Voting voting = new Voting();
-
         VotingResult votingResult = voting.executeVoting(voters, new Scanner(System.in));
         votingResult.printResults();
         votingResult.printVoteForVoter("Zigniew Siobro");
@@ -27,8 +24,31 @@ public class Voting {
      * Metoda powinna pobrać głos dla każdego przekazanego głosującego i zapisać wyniki głosowania do VotingResult
      */
     VotingResult executeVoting(List<String> voters, Scanner scanner) {
-
-        return null; // to możesz (a nawet powinieneś/powinnaś) zmienić :)
+        VotingResult votingResult = new VotingResult();
+        for (String voter : voters) {
+            String decision;
+            do {
+                System.out.println("Jak głosuje " + voter + "? (z - za, p - przeciw, w - wstrzymanie się)");
+                String option = option(scanner);
+                decision = option;
+            } while (decision.equals(""));
+            Vote vote = new Vote(voter, decision);
+            votingResult.votes.add(vote);
+        }
+        return votingResult;
     }
 
+    private String option(Scanner scanner) {
+        String option = scanner.nextLine().toLowerCase();
+        switch (option) {
+            case "z":
+                return "za";
+            case "p":
+                return "przeciw";
+            case "w":
+                return "wstrzymał się";
+            default:
+                return "";
+        }
+    }
 }
