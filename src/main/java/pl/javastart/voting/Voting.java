@@ -29,7 +29,7 @@ public class Voting {
             String decision;
             do {
                 System.out.println("Jak głosuje " + voter + "? (z - za, p - przeciw, w - wstrzymanie się)");
-                String option = option(scanner);
+                String option = getOption(scanner);
                 decision = option;
             } while (decision.equals(""));
             Vote vote = new Vote(voter, decision);
@@ -38,7 +38,7 @@ public class Voting {
         return votingResult;
     }
 
-    private String option(Scanner scanner) {
+    private String getOption(Scanner scanner) {
         String option = scanner.nextLine().toLowerCase();
         switch (option) {
             case "z":
