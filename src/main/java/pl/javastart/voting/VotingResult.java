@@ -14,7 +14,7 @@ public class VotingResult {
     private static final int MULTIPLAYER = 100;
 
     List<Vote> votes = new ArrayList<>();
-
+    
     /**
      * Metoda powinna drukować wyniki głosowania w takiej postaci:
      * Głosów za: 56.53%
@@ -56,6 +56,9 @@ public class VotingResult {
                 System.out.println(vote.getVoter() + ": " + vote.getVote().toUpperCase());
             }
         }
+    }
 
+    public void addVote(Vote vote) {
+        votes.add(vote);
     }
 }

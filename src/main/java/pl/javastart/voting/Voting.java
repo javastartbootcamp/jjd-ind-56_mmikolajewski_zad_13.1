@@ -33,7 +33,7 @@ public class Voting {
                 decision = option;
             } while (decision.equals(""));
             Vote vote = new Vote(voter, decision);
-            votingResult.votes.add(vote);
+            votingResult.addVote(vote);
         }
         return votingResult;
     }
