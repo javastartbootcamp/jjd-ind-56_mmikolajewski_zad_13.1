@@ -12,9 +12,8 @@ public class VotingResult {
     private static final String VOTE_AGAIN = "przeciw";
     private static final String VOTE_ABSTENTION = "wstrzymał się";
     private static final int MULTIPLAYER = 100;
+    private List<Vote> votes = new ArrayList<>();
 
-    List<Vote> votes = new ArrayList<>();
-    
     /**
      * Metoda powinna drukować wyniki głosowania w takiej postaci:
      * Głosów za: 56.53%
